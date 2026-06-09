@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aastha Bondre</title>
+  <title>Aastha Bondre — Data Scientist</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -13,255 +13,367 @@
       --muted: #6b6b6b;
       --accent: #2563eb;
       --border: #e5e5e3;
-      --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --tag-bg: #f0f0ee;
     }
 
     body {
       background: var(--bg);
       color: var(--fg);
-      font-family: var(--font);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 16px;
       line-height: 1.6;
-      min-height: 100vh;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── Layout ── */
     .container {
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 80px 24px 120px;
     }
 
     /* ── Header ── */
-    header { margin-bottom: 56px; }
+    header { margin-bottom: 60px; }
 
     .name {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.15;
+      line-height: 1.1;
       margin-bottom: 6px;
     }
 
     .title {
       font-size: 1rem;
       color: var(--muted);
-      font-weight: 400;
       margin-bottom: 24px;
     }
 
     .bio {
       font-size: 1.05rem;
+      line-height: 1.8;
       color: var(--fg);
-      line-height: 1.75;
-      max-width: 600px;
+      max-width: 640px;
     }
 
-    /* ── Sections ── */
-    section {
-      margin-bottom: 52px;
-    }
+    /* ── Section ── */
+    section { margin-bottom: 52px; }
 
     .section-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 20px;
     }
 
     /* ── Experience ── */
-    .experience-list { list-style: none; }
+    .exp-list { list-style: none; }
 
-    .experience-item {
+    .exp-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+
+    .exp-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
+      gap: 12px;
+      margin-bottom: 2px;
     }
 
-    .experience-item:first-child { border-top: 1px solid var(--border); }
+    .exp-company { font-weight: 650; font-size: 0.97rem; }
 
-    .exp-left { flex: 1; }
-
-    .exp-company {
-      font-weight: 600;
-      font-size: 0.97rem;
+    .exp-dates {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .exp-role {
       font-size: 0.88rem;
       color: var(--muted);
-      margin-top: 2px;
+      margin-bottom: 6px;
     }
 
-    .exp-year {
-      font-size: 0.82rem;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
+    .exp-highlight {
+      font-size: 0.85rem;
+      color: var(--fg);
+      line-height: 1.55;
     }
 
     /* ── Education ── */
     .edu-list { list-style: none; }
 
     .edu-item {
-      padding: 14px 0;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
     }
-
     .edu-item:first-child { border-top: 1px solid var(--border); }
 
-    .edu-school {
-      font-weight: 600;
-      font-size: 0.97rem;
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
     }
 
-    .edu-degree {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
+    .edu-school { font-weight: 650; font-size: 0.97rem; }
+    .edu-years { font-size: 0.8rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .edu-degree { font-size: 0.88rem; color: var(--muted); margin-bottom: 4px; }
+    .edu-note { font-size: 0.83rem; color: var(--fg); line-height: 1.5; }
 
     /* ── Skills ── */
-    .skills-grid {
+    .skills-block { margin-bottom: 14px; }
+
+    .skills-category {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
 
-    .skill-tag {
-      background: #f0f0ee;
+    .tag {
+      background: var(--tag-bg);
       color: var(--fg);
-      font-size: 0.82rem;
-      padding: 5px 12px;
+      font-size: 0.8rem;
+      padding: 4px 11px;
       border-radius: 999px;
-      font-weight: 450;
     }
 
-    /* ── Footer / Contact ── */
+    /* ── Publications ── */
+    .pub-item {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+    }
+    .pub-item:first-child { border-top: 1px solid var(--border); }
+
+    /* ── Footer ── */
     footer {
-      margin-top: 64px;
+      margin-top: 56px;
       padding-top: 24px;
       border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 20px;
     }
 
     .linkedin-btn {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       background: var(--accent);
       color: #fff;
       font-size: 0.88rem;
       font-weight: 500;
-      padding: 9px 18px;
+      padding: 10px 18px;
       border-radius: 6px;
       text-decoration: none;
       transition: background 0.15s;
     }
-
     .linkedin-btn:hover { background: #1d4ed8; text-decoration: none; }
-
-    .linkedin-btn svg { flex-shrink: 0; }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- Header -->
-    <header>
-      <h1 class="name">Aastha Bondre</h1>
-      <p class="title">Data Scientist</p>
-      <p class="bio">
-        I turn messy data into decisions that scale. With graduate degrees from
-        <strong>USC</strong> and <strong>IIT Delhi</strong> and stints at companies like
-        <strong>Meta</strong>, <strong>Grab</strong>, and <strong>Capital One</strong>,
-        I've spent years at the intersection of machine learning, product, and impact —
-        building models that actually ship and insights that actually stick.
-      </p>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1 class="name">Aastha Bondre</h1>
+    <p class="title">Senior Data Scientist · ML &amp; Machine Learning</p>
+    <p class="bio">
+      I build ML systems that move the needle — not just on benchmarks, but on the bottom line.
+      With a full-ride M.S. from <strong>USC</strong>, a dual degree from <strong>IIT Delhi</strong>
+      (top 0.01% nationally), and a decade of experience across retail, fintech, and logistics,
+      I specialize in taking messy, high-stakes problems and turning them into deployed models
+      with real impact. Currently at <strong>Target</strong>, where my work has driven
+      $30M+ in projected annual value.
+    </p>
+  </header>
 
-    <!-- Experience -->
-    <section>
-      <p class="section-label">Experience</p>
-      <ul class="experience-list">
-        <li class="experience-item">
-          <div class="exp-left">
-            <div class="exp-company">Meta</div>
-            <div class="exp-role">Data Scientist</div>
-          </div>
-          <span class="exp-year"></span>
-        </li>
-        <li class="experience-item">
-          <div class="exp-left">
-            <div class="exp-company">Capital One</div>
-            <div class="exp-role">Data Scientist</div>
-          </div>
-          <span class="exp-year"></span>
-        </li>
-        <li class="experience-item">
-          <div class="exp-left">
-            <div class="exp-company">Grab</div>
-            <div class="exp-role">Data Scientist</div>
-          </div>
-          <span class="exp-year"></span>
-        </li>
-      </ul>
-    </section>
+  <!-- Experience -->
+  <section>
+    <p class="section-label">Experience</p>
+    <ul class="exp-list">
 
-    <!-- Education -->
-    <section>
-      <p class="section-label">Education</p>
-      <ul class="edu-list">
-        <li class="edu-item">
-          <div class="edu-school">University of Southern California</div>
-          <div class="edu-degree">M.S. Computer Science</div>
-        </li>
-        <li class="edu-item">
-          <div class="edu-school">IIT Delhi</div>
-          <div class="edu-degree">B.Tech + M.Tech</div>
-        </li>
-      </ul>
-    </section>
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Target Corporation</span>
+          <span class="exp-dates">Aug 2022 – Present</span>
+        </div>
+        <div class="exp-role">Senior Data Scientist — ML for Product Availability · Sunnyvale, CA</div>
+        <div class="exp-highlight">
+          Deployed tree-based and neural network models to correct systemic inventory errors and prevent out-of-stock events. Projected $20M annual sales impact. Built post-deployment tuning pipeline generating an additional $10M in a single quarter.
+          <br><em style="color:var(--muted); font-size:0.8rem;">PySpark · Python · TensorFlow · XGBoost · LightGBM · MLFlow · Trino</em>
+        </div>
+      </li>
 
-    <!-- Skills -->
-    <section>
-      <p class="section-label">Skills</p>
-      <div class="skills-grid">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">Deep Learning</span>
-        <span class="skill-tag">A/B Testing</span>
-        <span class="skill-tag">Statistical Modeling</span>
-        <span class="skill-tag">NLP</span>
-        <span class="skill-tag">Data Pipelines</span>
-        <span class="skill-tag">Spark</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">PyTorch</span>
-        <span class="skill-tag">Product Analytics</span>
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">JP Morgan Chase &amp; Co.</span>
+          <span class="exp-dates">Jun 2020 – Jul 2020</span>
+        </div>
+        <div class="exp-role">Data Scientist Intern — Investment Banking · New York, NY</div>
+        <div class="exp-highlight">
+          Built time-series and time-to-event models on trade settlement data, avoiding ~$2M in regulatory fines. Designed distributed GPU training pipelines. Received full-time offer.
+          <br><em style="color:var(--muted); font-size:0.8rem;">Spark · MLlib · TensorFlow · SQL · LSTM · GRU</em>
+        </div>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Grab</span>
+          <span class="exp-dates">Jan 2018 – Jul 2018</span>
+        </div>
+        <div class="exp-role">Product Analytics Manager — Grab Logistics · Singapore</div>
+        <div class="exp-highlight">
+          Owned analytics for Grab Logistics across SE Asia. Designed A/B tests across Indonesia, Vietnam, and the Philippines; built anomaly detection models for fraud; led cross-functional dashboards tracking revenue and retention.
+        </div>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Flipkart</span>
+          <span class="exp-dates">Jun 2016 – Jan 2018</span>
+        </div>
+        <div class="exp-role">Senior Business Analyst — Trust &amp; Safety · Bangalore, India</div>
+        <div class="exp-highlight">
+          Deployed a real-time rule-based engine to detect fraudulent reviews. Designed business rules that cut customer return fraud from 1.8M to 0.3M/month. Hackathon finalist for NLP-based return categorization.
+        </div>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Capital One</span>
+          <span class="exp-dates">Jun 2014 – Jun 2016</span>
+        </div>
+        <div class="exp-role">Senior Business Analyst — Digital Marketing Analytics · Bangalore, India</div>
+        <div class="exp-highlight">
+          Built a cross-business data-sharing framework that saved $0.5M/month in operational costs. Managed Tableau infrastructure for the analytics org. Received Spot Award for exceptional performance.
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Education -->
+  <section>
+    <p class="section-label">Education</p>
+    <ul class="edu-list">
+      <li class="edu-item">
+        <div class="edu-header">
+          <span class="edu-school">University of Southern California</span>
+          <span class="edu-years">2018 – 2022</span>
+        </div>
+        <div class="edu-degree">M.S. Computer Science — Specialization in ML &amp; Data Science</div>
+        <div class="edu-note">GPA 3.81 · Full-Ride Scholarship · 6 publications · 280+ citations · TA for ML course · Vice-Chair, Women in Engineering</div>
+      </li>
+      <li class="edu-item">
+        <div class="edu-header">
+          <span class="edu-school">Indian Institute of Technology Delhi</span>
+          <span class="edu-years">2009 – 2014</span>
+        </div>
+        <div class="edu-degree">B.Tech + M.Tech in Electrical Engineering</div>
+        <div class="edu-note">GPA 8.52/10 · Class Rank 2/22 · IIT JEE AIR 815 (Top 0.05%) · Director's Academic Excellence Award</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <p class="section-label">Skills</p>
+
+    <div class="skills-block">
+      <div class="skills-category">Languages</div>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Shell Scripting</span>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-      <a class="linkedin-btn" href="https://www.linkedin.com/in/aastha-bondre/" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-        LinkedIn
-      </a>
-    </footer>
+    <div class="skills-block">
+      <div class="skills-category">ML Frameworks</div>
+      <div class="tags">
+        <span class="tag">TensorFlow</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">Scikit-learn</span>
+      </div>
+    </div>
 
-  </div>
+    <div class="skills-block">
+      <div class="skills-category">MLOps &amp; Deployment</div>
+      <div class="tags">
+        <span class="tag">Google Vertex AI</span>
+        <span class="tag">TensorFlow Serving</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">CI/CD Pipelines</span>
+        <span class="tag">MLFlow</span>
+      </div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-category">Cloud &amp; Data</div>
+      <div class="tags">
+        <span class="tag">GCP</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Azure</span>
+        <span class="tag">PySpark</span>
+        <span class="tag">Trino</span>
+        <span class="tag">Airflow</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+      </div>
+    </div>
+
+    <div class="skills-block">
+      <div class="skills-category">Modelling</div>
+      <div class="tags">
+        <span class="tag">Supervised / Unsupervised Learning</span>
+        <span class="tag">Time Series Forecasting</span>
+        <span class="tag">Ensemble Methods</span>
+        <span class="tag">Neural Networks</span>
+        <span class="tag">Transfer Learning</span>
+        <span class="tag">A/B Testing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section>
+    <p class="section-label">Publications &amp; Research</p>
+    <div class="pub-item">
+      280+ citations across 6 publications in leading ML and medical informatics venues including AMIA.
+      Representative work: <em>DeepCompete: A deep learning approach to competing risks in continuous time domain</em> (AMIA 2020).
+      <br><a href="https://tinyurl.com/publications-aastha-bondre" target="_blank" rel="noopener">View full publication list →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a class="linkedin-btn" href="https://www.linkedin.com/in/aastha-bondre/" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      LinkedIn
+    </a>
+  </footer>
+
+</div>
 </body>
 </html>
